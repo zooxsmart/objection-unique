@@ -1,0 +1,100 @@
+{
+  "name": "@zooxsmart/objection-unique",
+  "version": "0.9.0",
+  "description": "objection-unique",
+  "keywords": [
+    "entity",
+    "objection",
+    "objectionjs",
+    "plugin",
+    "plugins",
+    "unique",
+    "uniqueness",
+    "valid",
+    "validate",
+    "validation",
+    "validator"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/zooxsmart/objection-unique",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zooxsmart/objection-unique.git"
+  },
+  "author": {
+    "name": "Seegno",
+    "email": "projects@seegno.com",
+    "url": "https://seegno.com"
+  },
+  "contributors": [
+    {
+      "name": "Leandro Silva",
+      "email": "leandro.silva@zooxsmart.com"
+    }
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "/index.js"
+  ],
+  "dependencies": {
+    "lodash.castarray": "^4.4.0",
+    "lodash.compact": "^3.0.1",
+    "lodash.isempty": "^4.4.0"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "eslint": "^6.2.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "husky": "^3.0.4",
+    "knex": "^0.13.0",
+    "lint-staged": "^9.2.3",
+    "objection": "^1.6.9",
+    "sqlite3": "^4.1.0"
+  },
+  "peerDependencies": {
+    "objection": ">=1.0.0"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "lint": "eslint *.js"
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "release": {
+    "tagFormat": "${version}",
+    "plugins": [
+      "@semantic-release/commit-analyzer",
+      "@semantic-release/release-notes-generator",
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "preset": "angular"
+  }
+}
